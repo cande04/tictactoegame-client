@@ -41,11 +41,25 @@ const onSignOutFailure = () => {
   $('#message').addClass('failure')
 }
 
+const onChangePasswordSuccess = () => {
+  $('#message').text('Password changed successfully!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+}
+
+const onChangePasswordFailure = () => {
+  $('#message').text('Update password failed :(')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onChangePasswordSuccess,
+  onChangePasswordFailure
 }
