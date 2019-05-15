@@ -1,1 +1,27 @@
 @import '~bootstrap/scss/bootstrap';
+
+$header-footer-color: #8397b3;
+
+header {
+  background-color: $header-footer-color;
+  text-align: center;
+}
+
+.box {
+  align-items: center;
+  background-color: gray;
+  border: 1px solid white;
+  color: black;
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+
+.footer {
+  background-color: $header-footer-color;
+  bottom: 0;
+  height: 2.5rem;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
