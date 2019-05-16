@@ -52,7 +52,7 @@ const resetGame = function () {
   return gameBoard
 }
 
-$('#startOver').on('submit', (event) => {
+$('#newGame').on('submit', (event) => {
   event.preventDefault()
   resetGame()
   $('.box').html('')
