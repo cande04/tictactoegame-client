@@ -29,16 +29,39 @@ const gameBoard = ['', '', '', '', '', '', '', '', '']
 // })
 
 let turn = 0
-let currentToken = 'X'
-const winner = currentToken
+const player_x = 'X'
+const player_o = 'O'
+let currentPlayer = player_x
+const winner = currentPlayer
+
 
 const takeTurns = function () {
   if (turn % 2 === 1) {
-    currentToken = 'O'
+    currentPlayer = player_o
   } else {
-    currentToken = 'X'
+    currentPlayer = player_x
   }
-  return currentToken
+  return currentPlayer
+}
+
+const resetGame = function () {
+  turn = 0
+  for (let i = 0; i < gameBoard.length; i++) {
+    gameBoard[i] = ''
+  }
+  return gameBoard
+}
+
+$('#startOver').on('submit', (event) => {
+  event.preventDefault()
+  resetGame()
+  $('.box').html('')
+})
+
+let isGameOver = function () {
+  if (checkForWinner) {
+    return true
+  }
 }
 
 const checkForWinner = function () {
@@ -52,7 +75,7 @@ const checkForWinner = function () {
 (gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')) {
     console.log('player x wins')
     $('#message').html('Player X Wins!')
-    currentToken = 'X'
+    currentPlayer = player_x
     return true
   } else if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
   (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
@@ -64,25 +87,27 @@ const checkForWinner = function () {
 (gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')) {
     console.log('player o wins')
     $('#message').html('Player O Wins!')
-    currentToken = 'O'
+    currentPlayer = player_o
     return true
-  } else if (turn === 9) {
+  } else if (turn === 8) {
     console.log('draw')
+    $('#message').html('Draw!')
+    return true
   }
 }
 
-const placeTokens = function () {
+const placeTokens = function (event) {
   $('#data-index0').on('click', (event) => {
     if (gameBoard[0] === '') {
-      event.target.append(currentToken)
-      gameBoard[0] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[0] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
       console.log(gameBoard)
       console.log(turn)
     } else {
@@ -91,135 +116,143 @@ const placeTokens = function () {
   })
   $('#data-index1').on('click', (event) => {
     if (gameBoard[1] === '') {
-      event.target.append(currentToken)
-      gameBoard[1] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[1] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index2').on('click', (event) => {
     if (gameBoard[2] === '') {
-      event.target.append(currentToken)
-      gameBoard[2] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[2] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index3').on('click', (event) => {
     if (gameBoard[3] === '') {
-      event.target.append(currentToken)
-      gameBoard[3] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[3] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index4').on('click', (event) => {
     if (gameBoard[4] === '') {
-      event.target.append(currentToken)
-      gameBoard[4] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[4] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index5').on('click', (event) => {
     if (gameBoard[5] === '') {
-      event.target.append(currentToken)
-      gameBoard[5] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[5] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index6').on('click', (event) => {
     if (gameBoard[6] === '') {
-      event.target.append(currentToken)
-      gameBoard[6] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[6] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index7').on('click', (event) => {
     if (gameBoard[7] === '') {
-      event.target.append(currentToken)
-      gameBoard[7] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[7] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
   })
   $('#data-index8').on('click', (event) => {
     if (gameBoard[8] === '') {
-      event.target.append(currentToken)
-      gameBoard[8] = currentToken
+      event.target.append(currentPlayer)
+      gameBoard[8] = currentPlayer
       checkForWinner()
       if (checkForWinner() === true) {
         return winner
       }
       turn++
       takeTurns()
-      $('#message').html(`Player ${currentToken}'s turn!`)
+      $('#message').html(`Player ${currentPlayer}'s turn!`)
     } else {
       $('#message').html('Already Played!')
     }
     console.log(gameBoard)
   })
+
 }
 placeTokens()
 
+module.exports = {
+  gameBoard,
+  placeTokens,
+  checkForWinner,
+  takeTurns,
+  resetGame
+}
 
 // add event listener on grid
 // const addToken = function () {
 // const grid = document.getElementsByClassName('row')
 //
 // grid.addEventListener('click', greeting)
-//}
+// }
 // addToken()
 
 
