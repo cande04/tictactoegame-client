@@ -13,9 +13,7 @@ const onCreateFailure = () => {
 
 const onIndexSuccess = responseData => {
   const games = responseData.games
-  games.forEach(game => {
-    $('#stats').append(`<p>${game.id}: cells ${game.cells}`)
-  })
+  $('#stats').append(`<p>${games.length}</p>`)
 }
 
 const onIndexFailure = () => {
@@ -24,8 +22,8 @@ const onIndexFailure = () => {
 
 const onShowSuccess = responseData => {
   console.log('success', responseData)
-  const text = responseData.game.text
-  $('#message').text('Showing game: ' + text)
+  const text = JSON.stringify(responseData.game.cells)
+  $('#message').text('Here were the moves: ' + text)
   // $('#message').removeClass()
   // $('#message').addClass('success')
 }

@@ -117,20 +117,25 @@ const gameData = {
 const onPlay = (event) => {
   if (($(event.target).html() === '') && checkForWinner() !== true) {
     event.preventDefault()
-    $(event.target).html(currentPlayer)
+
     store.game.cells[$(event.target).data('index')] = currentPlayer
     gameData.game.cell.index = $(event.target).data('index')
     console.log(gameData)
-    checkForWinner()
+    // checkForWinner()
     gameData.game.over = isGameOver()
     api.update(gameData)
-      .then(() => console.log('hi from update'))
+      .then(() => {
+        $(event.target).html(currentPlayer)
+        if (checkForWinner() !== true) {
+          turn++
+          takeTurns()
+          $('#message').html(`Player ${currentPlayer}'s turn!`)
+        }
+      })
       .catch(() => console.log('failure'))
 
 
-    turn++
-    takeTurns()
-    $('#message').html(`Player ${currentPlayer}'s turn!`)
+
     console.log(store.game.cells)
   } else {
     $('#message').html('Already Played!')
