@@ -96,6 +96,17 @@ const checkForWinner = function () {
   }
 }
 
+const onReset = (event) => {
+  event.preventDefault()
+  $('.box').html('')
+  turn = 0
+  currentPlayer = player_x
+  // store.game.over = true
+  //   store.game.cells[i] = ''
+  //
+  // return store.game.cells
+}
+
 const isGameOver = function () {
   if (checkForWinner() !== true) {
     return false
@@ -143,16 +154,7 @@ const onPlay = (event) => {
   console.log(isGameOver())
 }
 
-const onReset = (event) => {
-  event.preventDefault()
-  $('.box').html('')
-  turn = 0
-  currentPlayer = player_x
-  // store.game.over = true
-  //   store.game.cells[i] = ''
-  //
-  // return store.game.cells
-}
+
 
 module.exports = {
   onCreate,
