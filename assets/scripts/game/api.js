@@ -3,7 +3,9 @@
 const config = require('../config')
 const store = require('../store')
 
+
 const create = () => {
+  console.log(store)
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -24,7 +26,43 @@ const index = () => {
   })
 }
 
+const show = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + formData.game.id,
+    method: 'GET',
+    data: formData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// const gameDelta = {
+//   game: {
+//     cell: {
+//       value: js.currentPlayer
+//     },
+//     over: js.isGameOVer
+//   }
+// }
+
+// const update = (ID, value) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/' + store.game.id,
+//     method: 'PATCH',
+//     data: {
+//       index: $('.box').data('index'),
+//       value:
+//     }
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
 module.exports = {
   create,
-  index
+  index,
+  show
+  // update
 }

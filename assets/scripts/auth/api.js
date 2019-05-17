@@ -12,6 +12,7 @@ const signUp = (formData) => {
 }
 
 const signIn = (formData) => {
+  console.log(store)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',

@@ -22,9 +22,26 @@ const onIndexFailure = () => {
   $('#message').text('Failed to get all games :()')
 }
 
+const onShowSuccess = responseData => {
+  console.log('success', responseData)
+  const text = responseData.game.text
+  $('#message').text('Showing game: ' + text)
+  // $('#message').removeClass()
+  // $('#message').addClass('success')
+}
+
+const onShowFailure = responseData => {
+  console.log('failure')
+  $('#message').text('Failed to get game :(')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+}
+
 module.exports = {
   onCreateSuccess,
   onCreateFailure,
   onIndexSuccess,
-  onIndexFailure
+  onIndexFailure,
+  onShowSuccess,
+  onShowFailure
 }

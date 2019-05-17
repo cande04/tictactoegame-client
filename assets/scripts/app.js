@@ -16,4 +16,7 @@ $(() => {
 
   $('#newGame').on('submit', gameEvents.onCreate)
   $('#games-index').on('submit', gameEvents.onIndex)
+  $('#games-show').on('submit', gameEvents.onShow)
+  $('.box').on('click', gameEvents.onPlay)
+  $('#newGame').on('submit', gameEvents.onReset)
 })
