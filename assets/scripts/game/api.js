@@ -37,32 +37,21 @@ const show = (formData) => {
   })
 }
 
-// const gameDelta = {
-//   game: {
-//     cell: {
-//       value: js.currentPlayer
-//     },
-//     over: js.isGameOVer
-//   }
-// }
-
-// const update = (ID, value) => {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     data: {
-//       index: $('.box').data('index'),
-//       value:
-//     }
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const update = (gameData) => {
+  console.log(store)
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    data: gameData,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   create,
   index,
-  show
-  // update
+  show,
+  update
 }

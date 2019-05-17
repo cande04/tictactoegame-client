@@ -43,7 +43,7 @@ const onShow = (event) => {
 //     .catch(() => console.log('failure'))
 // }
 
-const gameBoard = ['', '', '', '', '', '', '', '', '']
+// const store.game.cells = ['', '', '', '', '', '', '', '', '']
 let turn = 0
 const player_x = 'X'
 const player_o = 'O'
@@ -62,34 +62,36 @@ const takeTurns = function () {
 }
 
 const checkForWinner = function () {
-  if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||
-  (gameBoard[3] === 'X' && gameBoard[4] === 'X' && gameBoard[5] === 'X') ||
-(gameBoard[6] === 'X' && gameBoard[7] === 'X' && gameBoard[8] === 'X') ||
-(gameBoard[0] === 'X' && gameBoard[3] === 'X' && gameBoard[6] === 'X') ||
-(gameBoard[1] === 'X' && gameBoard[4] === 'X' && gameBoard[7] === 'X') ||
-(gameBoard[2] === 'X' && gameBoard[5] === 'X' && gameBoard[8] === 'X') ||
-(gameBoard[0] === 'X' && gameBoard[4] === 'X' && gameBoard[8] === 'X') ||
-(gameBoard[2] === 'X' && gameBoard[4] === 'X' && gameBoard[6] === 'X')) {
+  if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
+  (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
+(store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
+(store.game.cells[0] === 'X' && store.game.cells[3] === 'X' && store.game.cells[6] === 'X') ||
+(store.game.cells[1] === 'X' && store.game.cells[4] === 'X' && store.game.cells[7] === 'X') ||
+(store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
+(store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
+(store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     console.log('player x wins')
     $('#message').html('Player X Wins!')
     currentPlayer = player_x
+    // store.game.over = true
     return true
-  } else if ((gameBoard[0] === 'O' && gameBoard[1] === 'O' && gameBoard[2] === 'O') ||
-  (gameBoard[3] === 'O' && gameBoard[4] === 'O' && gameBoard[5] === 'O') ||
-(gameBoard[6] === 'O' && gameBoard[7] === 'O' && gameBoard[8] === 'O') ||
-(gameBoard[0] === 'O' && gameBoard[3] === 'O' && gameBoard[6] === 'O') ||
-(gameBoard[1] === 'O' && gameBoard[4] === 'O' && gameBoard[7] === 'O') ||
-(gameBoard[2] === 'O' && gameBoard[5] === 'O' && gameBoard[8] === 'O') ||
-(gameBoard[0] === 'O' && gameBoard[4] === 'O' && gameBoard[8] === 'O') ||
-(gameBoard[2] === 'O' && gameBoard[4] === 'O' && gameBoard[6] === 'O')) {
+  } else if ((store.game.cells[0] === 'O' && store.game.cells[1] === 'O' && store.game.cells[2] === 'O') ||
+  (store.game.cells[3] === 'O' && store.game.cells[4] === 'O' && store.game.cells[5] === 'O') ||
+(store.game.cells[6] === 'O' && store.game.cells[7] === 'O' && store.game.cells[8] === 'O') ||
+(store.game.cells[0] === 'O' && store.game.cells[3] === 'O' && store.game.cells[6] === 'O') ||
+(store.game.cells[1] === 'O' && store.game.cells[4] === 'O' && store.game.cells[7] === 'O') ||
+(store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
+(store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
+(store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
     console.log('player o wins')
     $('#message').html('Player O Wins!')
     currentPlayer = player_o
+    // store.game.over = true
     return true
-  } else if (turn === 8) {
+  } else if (turn === 9) {
     console.log('draw')
     $('#message').html('Draw!')
-    // store.user.game.over = true
+    // store.game.over = true
     return true
   }
 }
@@ -102,20 +104,34 @@ const isGameOver = function () {
   }
 }
 
+const gameData = {
+  game: {
+    cell: {
+      index: 0,
+      value: currentPlayer
+    },
+    over: false
+  }
+}
+
 const onPlay = (event) => {
   if (($(event.target).html() === '') && checkForWinner() !== true) {
     event.preventDefault()
     $(event.target).html(currentPlayer)
-    // api.update(event.target)
-    for (let i = 0; i < gameBoard.length; i++) {
-      gameBoard[$(event.target).data('index')] = currentPlayer
-    }
-    // store.game.over = false
+    store.game.cells[$(event.target).data('index')] = currentPlayer
+    gameData.game.cell.index = $(event.target).data('index')
+    console.log(gameData)
     checkForWinner()
+    gameData.game.over = isGameOver()
+    api.update(gameData)
+      .then(() => console.log('hi from update'))
+      .catch(() => console.log('failure'))
+
+
     turn++
     takeTurns()
     $('#message').html(`Player ${currentPlayer}'s turn!`)
-    console.log(gameBoard)
+    console.log(store.game.cells)
   } else {
     $('#message').html('Already Played!')
   }
@@ -126,11 +142,11 @@ const onReset = (event) => {
   event.preventDefault()
   $('.box').html('')
   turn = 0
-  // store.user.game.over = true
-  for (let i = 0; i < gameBoard.length; i++) {
-    gameBoard[i] = ''
-  }
-  return gameBoard
+  currentPlayer = player_x
+  // store.game.over = true
+  //   store.game.cells[i] = ''
+  //
+  // return store.game.cells
 }
 
 module.exports = {

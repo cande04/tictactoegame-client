@@ -1,10 +1,10 @@
 'use strict'
 
 const store = require('../store')
-const api = require('./api')
+// const api = require('./api')
 
-const onCreateSuccess = () => {
-  store.game = api.game
+const onCreateSuccess = (responseData) => {
+  store.game = responseData.game
 }
 
 const onCreateFailure = () => {
