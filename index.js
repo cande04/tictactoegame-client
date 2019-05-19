@@ -15,6 +15,7 @@ require('./assets/scripts/app.js')
 // styles
 require('./assets/styles/index.scss')
 
+
 // const gameBoard = ['', '', '', '', '', '', '', '', '']
 // let turn = 0
 
@@ -58,13 +59,13 @@ require('./assets/styles/index.scss')
 //   $('.box').html('')
 // })
 
-let isGameOver = function () {
-  if (checkForWinner) {
-    return true
-  } else {
-    return false
-  }
-}
+// let isGameOver = function () {
+//   if (checkForWinner) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 // const checkForWinner = function () {
 //   if ((gameBoard[0] === 'X' && gameBoard[1] === 'X' && gameBoard[2] === 'X') ||

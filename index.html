@@ -12,49 +12,95 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <header>
-        <h1>Tic Tac Toe</h1>
-      </header>
-      <nav>
-        <h3>Sign Up</h3>
-          <form id='signup'>
-            <input type="email" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-            <input type="submit" value="Sign Up">
-          </form>
 
-        <h3>Sign In</h3>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signinModal">Sign In</button>
+      <button type="button" id="buttonChange" class="btn btn-primary" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-primary" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+
+
+
+
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-body">
+            <form id='signup'>
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" class="signup-button" value="Sign Up">
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
           <form id='signin'>
             <input type="email" name="credentials[email]" placeholder="Email">
             <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="submit" value="Sign In">
+            <input type="submit" class="signin-button" value="Sign In">
           </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sign In</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-        <h3>Change Password</h3>
+<div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
           <form id='changepw'>
             <input type="password" name="passwords[old]" placeholder="Current Password">
             <input type="password" name="passwords[new]" placeholder="New Password">
-            <input type="submit" value="Change">
+            <input id="changepw-button" type="submit" value="Change">
           </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Change Password</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-        <h3>Sign Out</h3>
-          <form id='signout'>
-            <input type='submit' value="Sign Out">
-          </form>
-      </nav>
+
+
+
+
+
+      <header>
+        <h1>Tic Tac Toe</h1>
+      </header>
+
       <div>
-                <div class="container">
+        <h2 id="message"></h2>
+                <div class="container" id="gameboard">
                   <div class="row">
-                    <div id="data-index0" data-index='0' class="col-4 box"></div>
-                    <div id="data-index1" data-index='1' class="col-4 box"></div>
-                    <div id="data-index2" data-index='2' class="col-4 box"></div>
-                    <div id="data-index3" data-index='3' class="col-4 box"></div>
-                    <div id="data-index4" data-index='4' class="col-4 box"></div>
-                    <div id="data-index5" data-index='5' class="col-4 box"></div>
-                    <div id="data-index6" data-index='6' class="col-4 box"></div>
-                    <div id="data-index7" data-index='7' class="col-4 box"></div>
-                    <div id="data-index8" data-index='8' class="col-4 box"></div>
+                    <div data-index='0' class="col-4 box"></div>
+                    <div data-index='1' class="col-4 box"></div>
+                    <div data-index='2' class="col-4 box"></div>
+                    <div data-index='3' class="col-4 box"></div>
+                    <div data-index='4' class="col-4 box"></div>
+                    <div data-index='5' class="col-4 box"></div>
+                    <div data-index='6' class="col-4 box"></div>
+                    <div data-index='7' class="col-4 box"></div>
+                    <div data-index='8' class="col-4 box"></div>
                   </div>
                 </div>
                 <form id='newGame'><input type='submit' value='New Game'></form>
@@ -63,11 +109,30 @@
                 <form id='games-show'>
                   <input type='number' name='game[id]' placeholder='Game ID'>
                   <input type='submit' value="Get a Game"></form>
-      </div>
 
-      <h2 id="message"></h2>
+                  <div class="container" id="small-gameboard">
+                    <div class="row">
+                      <div data-index='0' class="col-1 small-box"></div>
+                      <div data-index='1' class="col-1 small-box"></div>
+                      <div data-index='2' class="col-1 small-box"></div>
+                    </div>
+                    <div class="row">
+                      <div data-index='3' class="col-1 small-box"></div>
+                      <div data-index='4' class="col-1 small-box"></div>
+                      <div data-index='5' class="col-1 small-box"></div>
+                    </div>
+                    <div class="row">
+                      <div data-index='6' class="col-1 small-box"></div>
+                      <div data-index='7' class="col-1 small-box"></div>
+                      <div data-index='8' class="col-1 small-box"></div>
+                  </div>
+                </div>
+
+
+
+
       <h2 id="stats"></h2>
-
+  </div>
       <footer class="footer">
         <h4>Thanks for playing!</h4>
       </footer>

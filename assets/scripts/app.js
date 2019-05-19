@@ -11,8 +11,53 @@ const gameEvents = require('./game/events')
 $(() => {
   $('#signup').on('submit', authEvents.onSignUp)
   $('#signin').on('submit', authEvents.onSignIn)
-  $('#signout').on('submit', authEvents.onSignOut)
+  $('#signout').on('click', authEvents.onSignOut)
   $('#changepw').on('submit', authEvents.onChangePassword)
+
+  $('.signin-button').on('click', function () {
+    $('#signinModal').modal('hide')
+  })
+
+  $('.signup-button').on('click', function () {
+    $('#signupModal').modal('hide')
+  })
+
+  $('.changepw-button').on('click', function () {
+    $('#changePwModal').modal('hide')
+  })
+
+  $('document').ready(() => {
+    $('#newGame').hide()
+  })
+
+  $('document').ready(() => {
+    $('#games-index').hide()
+  })
+
+  $('document').ready(() => {
+    $('#games-show').hide()
+  })
+
+  $('document').ready(() => {
+    $('#games-index').hide()
+  })
+
+  $('document').ready(() => {
+    $('#gameboard').hide()
+})
+
+  $('document').ready(() => {
+    $('#buttonChange').hide()
+  })
+
+  $('document').ready(() => {
+    $('#signout').hide()
+  })
+
+  $('document').ready(() => {
+    $('#small-gameboard').hide()
+  })
+
 
   $('#newGame').on('submit', gameEvents.onCreate)
   $('#games-index').on('submit', gameEvents.onIndex)

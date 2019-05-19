@@ -7,6 +7,11 @@ const onSignUpSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#newGame').show()
+  $('#games-index').show()
+  $('#games-show').show()
+  $('#signout').show()
+  $('#buttonChange').show()
 }
 
 const onSignUpFailure = responseData => {
@@ -22,6 +27,11 @@ const onSignInSuccess = responseData => {
   $('#message').addClass('success')
   $('form').trigger('reset')
   store.user = responseData.user
+  $('#newGame').show()
+  $('#games-index').show()
+  $('#games-show').show()
+  $('#signout').show()
+  $('#buttonChange').show()
 }
 
 const onSignInFailure = responseData => {

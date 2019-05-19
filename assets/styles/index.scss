@@ -13,16 +13,41 @@ header {
   border: 1px solid white;
   color: black;
   display: flex;
-  height: 80px;
+  height: 18vh;
   justify-content: center;
+}
+
+.container {
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .footer {
   background-color: $header-footer-color;
   bottom: 0;
   height: 2.5rem;
-  margin-top: -2.5rem;
-  position: absolute;
+  margin-top: 2.5rem;
   text-align: center;
   width: 100%;
+}
+
+.small-box {
+  align-items: center;
+  background-color: gray;
+  border: 1px solid white;
+  color: black;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+}
+
+#gameboard {
+  width: 45vh;
+  height: 45vh;
+  font-size: 5rem;
+}
+
+#small-gameboard {
+  width: 45vh;
+  height: 45vh;
 }

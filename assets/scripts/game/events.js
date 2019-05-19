@@ -7,6 +7,7 @@ const ui = require('./ui')
 
 const onCreate = (event) => {
   event.preventDefault()
+  $('#gameboard').show()
 
   api.create()
     .then(ui.onCreateSuccess)

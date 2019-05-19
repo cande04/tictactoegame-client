@@ -19,23 +19,37 @@ const onIndexSuccess = responseData => {
   const games = responseData.games
   $('#stats').append(`<p>${games.length}</p>`)
   setTimeout(() => $('#stats').html(''), 5000)
-
 }
 
 const onIndexFailure = () => {
   $('#message').text('Failed to get all games :()')
   $('form').trigger('reset')
   setTimeout(() => $('#message').html(''), 5000)
-
 }
 
 const onShowSuccess = responseData => {
   console.log('success', responseData)
+  $('#small-gameboard').show()
+  // for (let i = 0; i < responseData.game.cells.length; i++) {
+  const cells = responseData.game.cells[$('.small-box').data('index')]
+  $('.small-box').html(cells)
+  // }
+  // if ($('.small-box').data('index') === responseData.game.cells[i]) {
+  //   $('.small-box').html(responseData.game.cells[i])
+  // }
+  // }
+  // console.log(responseData.game.cells)
+
+  // for (let i = 0; i < responseData.game.cells.length; i++) {
+  //   $('.small-box').data('index').html(responseData.game.cells[i])
+  // }
+
   const text = JSON.stringify(responseData.game.cells)
   $('#stats').text('Here were the moves: ' + text)
   setTimeout(() => $('#stats').html(''), 5000)
   // $('#message').removeClass()
   // $('#message').addClass('success')
+  setTimeout(() => $('#small-gameboard').hide(), 5000)
 }
 
 const onShowFailure = responseData => {
