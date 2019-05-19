@@ -89,8 +89,9 @@ const checkForWinner = function () {
     currentPlayer = player_o
     // store.game.over = true
     return true
-  } else if (turn === 9) {
+  } else if (turn === 8) {
     console.log('draw')
+    $(event.target).html(currentPlayer)
     $('#message').html('Draw!')
     // store.game.over = true
     return true

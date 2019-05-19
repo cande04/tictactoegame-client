@@ -7,11 +7,16 @@ const onSignUpSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#signin-button').hide()
   $('#newGame').show()
   $('#games-index').show()
   $('#games-show').show()
+  $('#game-show-id').show()
   $('#signout').show()
   $('#buttonChange').show()
+  $('#signup-submit').on('submit', () => {
+    $('#panel7').modal('hide')
+  })
 }
 
 const onSignUpFailure = responseData => {
@@ -27,11 +32,16 @@ const onSignInSuccess = responseData => {
   $('#message').addClass('success')
   $('form').trigger('reset')
   store.user = responseData.user
+  $('#signin-button').hide()
   $('#newGame').show()
   $('#games-index').show()
   $('#games-show').show()
+  $('#game-show-id').show()
   $('#signout').show()
   $('#buttonChange').show()
+  $('#signin-submit').on('submit', () => {
+    $('#modalLRForm').modal('hide')
+  })
 }
 
 const onSignInFailure = responseData => {

@@ -13,15 +13,108 @@
     </head>
     <body>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signinModal">Sign In</button>
-      <button type="button" id="buttonChange" class="btn btn-primary" data-toggle="modal" data-target="#changePwModal">Change Password</button>
-      <button type="button" id="signout" class="btn btn-primary" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signinModal">Sign In</button> -->
+
+
+<div class="text-center">
+      <button type="button" id="buttonChange" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+</div>
+
+      <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+          <div class="modal-content">
+            <div class="modal-c-tabs">
+              <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
+                    Sign In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                    Sign Up</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                  <div class="modal-body mb-1">
+                    <form id="signin">
+                    <div class="md-form form-sm mb-5">
+                      <input type="email" name=credentials[email] class="form-control" placeholder="Email">
+                    </div>
+                    <div class="md-form form-sm mb-4">
+                      <input type="password" name=credentials[password] class="form-control" placeholder="Password">
+                    </div>
+
+                    <div class="text-center form-sm mt-2">
+                      <input type="submit" value="Sign In" id="signin-submit">
+                    </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+                  <div class="modal-footer">
+                    <div class="options text-center text-md-right mt-1">
+                      <p>Not a member? Sign up on the next tab!</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                  <div class="modal-body">
+                      <form id="signup">
+                    <div class="md-form form-sm mb-5">
+                      <input type="email" name=credentials[email] class="form-control form-control-sm validate" placeholder="Email">
+                    </div>
+
+                    <div class="md-form form-sm mb-5">
+                      <input type="password" name=credentials[password] class="form-control form-control-sm validate" placeholder="Password">
+                    </div>
+
+                    <div class="md-form form-sm mb-4">
+                      <input type="password" name=credentials[password] class="form-control form-control-sm validate" placeholder="Password Confirmation">
+                    </div>
+
+                    <div class="text-center form-sm mt-2">
+                      <input type="submit" value="Sign Up" id="signup-submit">
+                    </div>
+                  </form>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+      <div class="text-center" id="signin-button">
+        <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Sign in to get started!</a>
+      </div>
 
 
 
 
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,7 +151,7 @@
     </div>
   </div>
 </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -66,13 +159,16 @@
       <div class="modal-header">
         <div class="modal-body">
           <form id='changepw'>
+            <div class="md-form form-sm mb-5 text-center">
             <input type="password" name="passwords[old]" placeholder="Current Password">
+            </div>
+            <div class="md-form form-sm mb-5 text-center">
             <input type="password" name="passwords[new]" placeholder="New Password">
-            <input id="changepw-button" type="submit" value="Change">
+          </div>
+          <div class="md-form form-sm mb-5 text-center">
+            <input id="changepw-button" type="submit" class="text-center" value="Change Password">
+          </div>
           </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Change Password</button>
       </div>
     </div>
   </div>
@@ -103,12 +199,14 @@
                     <div data-index='8' class="col-4 box"></div>
                   </div>
                 </div>
-                <form id='newGame'><input type='submit' value='New Game'></form>
-                <form id='games-index'><input type='submit' value='Total Number Games'></form>
 
-                <form id='games-show'>
-                  <input type='number' name='game[id]' placeholder='Game ID'>
-                  <input type='submit' value="Get a Game"></form>
+
+<button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
+<button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
+<form>
+  <input type='number' name='game[id]' id='game-show-id' placeholder='Game ID'>
+  <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-show'>Find a game</button>
+</form>
 
                   <div class="container" id="small-gameboard">
                     <div class="row">
