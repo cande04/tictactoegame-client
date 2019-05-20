@@ -7,6 +7,7 @@
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
+
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -22,6 +23,8 @@
   <header>
     <h1>Tic Tac Toe</h1>
   </header>
+
+
 
       <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog cascading-modal" role="document">
@@ -58,7 +61,7 @@
                   <div class="modal-footer">
                     <div class="options text-center text-md-right mt-1">
                         <h3 id="noSignIn"></h3>
-                      <p>Not a member? Sign up on the next tab!</p>
+                      <!-- <p>Not a member? Sign up on the next tab!</p> -->
                     </div>
                     <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                   </div>
@@ -96,9 +99,23 @@
             </div>
           </div>
 
-      <div class="text-center" id="signin-button">
-        <a href="" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Sign in to get started!</a>
-      </div>
+
+
+          <div class="jumbotron text-center">
+            <h1 class="display-4">Are you ready to play Tic Tac Toe?!</h1>
+            <p class="lead">This is a single player game, where you will play both X's and O's.</p>
+            <hr class="my-4">
+            <p>Let's get started!</p>
+            <p class="lead">
+              <div class="text-center" id="signin-button">
+                <a class="btn btn-outline-info btn-lg waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Click here to sign up or sign in!</a>
+              </div>
+            </p>
+          </div>
+
+      <!-- <div class="text-center" id="signin-button">
+        <a class="btn btn-outline-info btn-lg waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Click here to sign up or sign in!</a>
+      </div> -->
     </div>
 
 
@@ -154,10 +171,10 @@
 </div>
 </div> -->
 <div id="everythingGame">
-<div class="text-center">
+<!-- <div class="text-right">
       <button type="button" id="buttonChange" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#changePwModal">Change Password</button>
       <button type="button" id="signout" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
-</div>
+</div> -->
 
 <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -188,7 +205,11 @@
 
 
 
-    <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
+    <button type="button" class="btn btn-outline-info btn-lg btn-block waves-effect ml-auto" id='newGame'>New Game</button>
+    <div class="text-right">
+      <button type="button" id="buttonChange" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+    </div>
         <div>
         <h2 id="message"></h2>
       </div>
@@ -279,7 +300,8 @@
 
 
   </div>
-      <footer class="footer">
+      <footer>
+        <h4 class="footer"></h4>
       </footer>
     </body>
 </html>

@@ -19,12 +19,12 @@ const onCreateFailure = () => {
 
 const onIndexSuccess = responseData => {
   const games = responseData.games
-  $('#stats').append(`<p>${games.length}</p>`)
+  $('#stats').append(`<p>You've played ${games.length} games!</p>`)
   setTimeout(() => $('#stats').html(''), 5000)
 }
 
 const onIndexFailure = () => {
-  $('#message').text('Failed to get all games :()')
+  $('#stats').text('Failed to get all games :()')
   $('form').trigger('reset')
   setTimeout(() => $('#message').html(''), 5000)
 }
@@ -66,7 +66,7 @@ const onShowSuccess = responseData => {
 
 const onShowFailure = responseData => {
   console.log('failure')
-  $('#message').text('Failed to get game :(')
+  $('#stats').text('Must enter a valid game ID')
   $('form').trigger('reset')
   setTimeout(() => $('#message').html(''), 5000)
   // $('#message').removeClass()

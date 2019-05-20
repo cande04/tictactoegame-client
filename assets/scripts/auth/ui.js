@@ -3,18 +3,20 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('#message').text('Signed up successfully!')
+  $('#noSignIn').text('Signed up successfully! Now, sign in above:)')
+  store.user = responseData.user
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('#signin-button').hide()
-  $('#newGame').show()
-  $('#games-index').show()
-  $('#games-show').show()
-  $('#game-show-id').show()
-  $('#signout').show()
-  $('#buttonChange').show()
-  $('#modalLRForm').modal('hide')
+  // $('#newGame').show()
+  // $('#games-index').show()
+  // $('#games-show').show()
+  // $('#game-show-id').show()
+  // $('#signout').show()
+  // $('#buttonChange').show()
+  // $('#modalLRForm').modal('hide')
+  // $('.gameboard').hide()
 }
 
 const onSignUpFailure = responseData => {
@@ -40,6 +42,8 @@ const onSignInSuccess = responseData => {
   $('#buttonChange').show()
   $('#modalLRForm').modal('hide')
   $('.gameboard').hide()
+  $('#noSignIn').text('')
+  $('.jumbotron').hide()
 }
 
 const onSignInFailure = responseData => {
@@ -62,6 +66,7 @@ const onSignOutSuccess = () => {
   $('#signin-submit').on('submit', () => {
     $('#modalLRForm').modal('show')
   })
+  $('.jumbotron').show()
   $('#signin-button').show()
   $('.smallgameboard').hide()
 }
