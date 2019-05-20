@@ -66,7 +66,7 @@ const takeTurns = function () {
 }
 
 const checkForWinner = function () {
-  console.log('turn is now ', turn)
+  // console.log('turn is now ', turn)
   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
   (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
 (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
@@ -75,7 +75,7 @@ const checkForWinner = function () {
 (store.game.cells[2] === 'X' && store.game.cells[5] === 'X' && store.game.cells[8] === 'X') ||
 (store.game.cells[0] === 'X' && store.game.cells[4] === 'X' && store.game.cells[8] === 'X') ||
 (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
-    console.log('player x wins')
+    // console.log('player x wins')
     $('#message').html('Player X Wins!')
     currentPlayer = player_x
     // store.game.over = true
@@ -88,13 +88,13 @@ const checkForWinner = function () {
 (store.game.cells[2] === 'O' && store.game.cells[5] === 'O' && store.game.cells[8] === 'O') ||
 (store.game.cells[0] === 'O' && store.game.cells[4] === 'O' && store.game.cells[8] === 'O') ||
 (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
-    console.log('player o wins')
+    // console.log('player o wins')
     $('#message').html('Player O Wins!')
     currentPlayer = player_o
     // store.game.over = true
     return true
   } else if (!store.game.cells.includes('')) {
-    console.log('draw')
+    // console.log('draw')
     // $(event.target).html(currentPlayer)
     $('#message').html('Draw!')
     // store.game.over = true
@@ -148,8 +148,8 @@ const onPlay = (event) => {
         $(event.target).html(currentPlayer)
         if (checkForWinner() !== true) {
           turn++
-          console.log('turn increased to ', turn)
-          console.log(store.game.cells)
+          // console.log('turn increased to ', turn)
+          // console.log(store.game.cells)
           takeTurns()
           // store.game.cells[$(event.target).data('index')] = currentPlayer
 
@@ -166,13 +166,13 @@ const onPlay = (event) => {
         //   }
         // }
       })
-      .catch(() => console.log('failure'))
+      .catch(ui.onPlayFailure)
     // console.log(store.game.cells)
   } else {
     $('#message').html('Already Played!')
-    console.log('============')
+    // console.log('============')
   }
-  console.log(isGameOver())
+  // console.log(isGameOver())
 }
 
 module.exports = {

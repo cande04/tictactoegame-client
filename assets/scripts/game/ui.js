@@ -30,11 +30,11 @@ const onIndexFailure = () => {
 }
 
 const onShowSuccess = responseData => {
-  console.log('success', responseData)
-  console.log(responseData.game.cells.length)
-  console.log(responseData.game.cells)
+  // console.log('success', responseData)
+  // console.log(responseData.game.cells.length)
+  // console.log(responseData.game.cells)
   store.game = responseData.game
-  console.log(store.game)
+  // console.log(store.game)
   $('form').trigger('reset')
 
   $('.smallgameboard').show()
@@ -65,12 +65,16 @@ const onShowSuccess = responseData => {
 }
 
 const onShowFailure = responseData => {
-  console.log('failure')
+  // console.log('failure')
   $('#stats').text('Must enter a valid game ID')
   $('form').trigger('reset')
   setTimeout(() => $('#message').html(''), 5000)
   // $('#message').removeClass()
   // $('#message').addClass('failure')
+}
+
+const onPlayFailure = responseData => {
+  $('#message').text('Failed to make a move')
 }
 
 module.exports = {
@@ -79,5 +83,6 @@ module.exports = {
   onIndexSuccess,
   onIndexFailure,
   onShowSuccess,
-  onShowFailure
+  onShowFailure,
+  onPlayFailure
 }

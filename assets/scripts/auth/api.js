@@ -12,7 +12,7 @@ const signUp = (formData) => {
 }
 
 const signIn = (formData) => {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -31,8 +31,8 @@ const signOut = () => {
 }
 
 const changePassword = (formData) => {
-  console.log('from update password api')
-  console.log('store is', store)
+  // console.log('from update password api')
+  // console.log('store is', store)
 
   return $.ajax({
     url: config.apiUrl + '/change-password',

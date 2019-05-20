@@ -3,7 +3,7 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('#noSignIn').text('Signed up successfully! Now, sign in above:)')
+  $('#noSignIn').text('Signed up successfully. Now, sign in above!')
   store.user = responseData.user
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -47,7 +47,6 @@ const onSignInSuccess = responseData => {
 }
 
 const onSignInFailure = responseData => {
-  $('#message').text('Sign in failed :(')
   $('#noSignIn').text('Wrong Username/Password')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -55,7 +54,7 @@ const onSignInFailure = responseData => {
 }
 
 const onSignOutSuccess = () => {
-  console.log('successfully signed Out')
+  // console.log('successfully signed Out')
   $('.footer').text('Signed Out Successfully! Thanks for playing!')
   $('.box').html('')
   $('#message').removeClass()
@@ -72,7 +71,7 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  console.log('failure')
+  // console.log('failure')
   $('#message').text('Sign out failed :(')
   $('#message').removeClass()
   $('#message').addClass('failure')

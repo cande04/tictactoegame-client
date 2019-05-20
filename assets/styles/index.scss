@@ -11,9 +11,10 @@ $dark: #0B363D;
 
 header {
   background-color: $light;
-  text-align: center;
-  margin-bottom: auto;
+  height: 4rem;
+  margin: auto;
   padding: 0;
+  text-align: center;
 }
 
 .box {
@@ -89,8 +90,14 @@ header {
 #message {
   text-align: center;
   color: $dark;
-  margin-top: -2rem;
+  margin: auto;
   padding-bottom: 2rem;
+}
+
+#stats {
+  padding: 1rem;
+  margin: auto;
+  color: dark;
 }
 
 
