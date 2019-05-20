@@ -55,7 +55,7 @@ $(() => {
   })
 
   $('document').ready(() => {
-    $('#gameboard').hide()
+    $('.gameboard').hide()
   })
 
   $('document').ready(() => {
@@ -67,7 +67,7 @@ $(() => {
   })
 
   $('document').ready(() => {
-    $('#small-gameboard').hide()
+    $('.smallgameboard').hide()
   })
 
   $('#newGame').on('click', gameEvents.onCreate)

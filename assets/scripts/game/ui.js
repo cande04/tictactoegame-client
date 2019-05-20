@@ -7,7 +7,8 @@ const onCreateSuccess = (responseData) => {
   store.game = responseData.game
   $('#message').text(`Let's play! Player X can start!`)
   $('form').trigger('reset')
-  $('#small-gameboard').hide()
+  $('.smallgameboard').hide()
+  $('.gameboard').show()
 }
 
 const onCreateFailure = () => {
@@ -34,7 +35,9 @@ const onShowSuccess = responseData => {
   console.log(responseData.game.cells)
   store.game = responseData.game
   console.log(store.game)
-  $('#small-gameboard').show()
+  $('form').trigger('reset')
+
+  $('.smallgameboard').show()
   // for (let i = 0; i < responseData.game.cells.length; i++) {
   // const cells = responseData.game.cells[$('.small-box').data('index')]
   // $('.small-box').html(cells)

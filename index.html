@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Cory's Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -57,6 +57,7 @@
                 </div>
                   <div class="modal-footer">
                     <div class="options text-center text-md-right mt-1">
+                        <h3 id="noSignIn"></h3>
                       <p>Not a member? Sign up on the next tab!</p>
                     </div>
                     <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
@@ -171,6 +172,7 @@
             <input type="password" name="passwords[new]" placeholder="New Password">
           </div>
           <div class="md-form form-sm mb-5 text-center">
+            <p id="noChangePw"></p>
             <input id="changepw-button" type="submit" class="btn btn-outline-info waves-effect ml-auto" value="Change Password">
           </div>
           </form>
@@ -185,13 +187,17 @@
 
 
 
-<div>
-      <div class="row">
+
+    <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
+        <div>
         <h2 id="message"></h2>
-        <div class="col-sm-8">
-        <div class="embed-responsive embed-responsive-1by1 gamearea">
-              <div class="embed-responsive-item">
-                <div id="gameboard">
+      </div>
+        <!-- <div class="row"> -->
+        <!-- <div class="col-sm-8"> -->
+
+          <div class="embed-responsive embed-responsive-1by1 gamearea">
+              <div class="embed-responsive-item gameboard row">
+
                     <div data-index='0' class="col-4 box"></div>
                     <div data-index='1' class="col-4 box"></div>
                     <div data-index='2' class="col-4 box"></div>
@@ -203,19 +209,23 @@
                     <div data-index='8' class="col-4 box"></div>
                   </div>
                 </div>
+              <!-- </div> -->
+            <!-- </div> -->
 
 
 
 
+<!-- <div>
 <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
 <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
 <form id='games-show'>
   <input type='number' name='game[id]' placeholder='Game ID'>
   <input type="submit" value="Find a Game" class="btn btn-outline-info waves-effect ml-auto">
-  <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
-</form>
+  <! <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
+<!-- </form>
+</div> -->
 
-                  <div class="container" id="small-gameboard">
+                  <!-- <div class="container" id="small-gameboard">
                     <div class="row">
                       <div data-smindex='0' class="col-4 small-box"></div>
                       <div data-smindex='1' class="col-4 small-box"></div>
@@ -231,19 +241,45 @@
                       <div data-smindex='7' class="col-4 small-box"></div>
                       <div data-smindex='8' class="col-4 small-box"></div>
                   </div>
+                </div> -->
+
+
+                <div class="row">
+                  <div class="col-sm-4 text-center">
+
+                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
+                      <h2 id="stats"></h2>
+
+                    <form id='games-show'>
+                      <input type="submit" value="Find a Game" class="btn btn-outline-info waves-effect ml-auto">
+                      <input type='number' name='game[id]' placeholder='Game ID'>
+                      <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
+                    </form>
+                    <div class="embed-responsive embed-responsive-1by1 smallgamearea">
+                        <div class="embed-responsive-item smallgameboard row">
+                    <!-- <div class="container" id="small-gameboard"> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='0' class="col-4 small-box"></div>
+                        <div data-smindex='1' class="col-4 small-box"></div>
+                        <div data-smindex='2' class="col-4 small-box"></div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='3' class="col-4 small-box"></div>
+                        <div data-smindex='4' class="col-4 small-box"></div>
+                        <div data-smindex='5' class="col-4 small-box"></div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='6' class="col-4 small-box"></div>
+                        <div data-smindex='7' class="col-4 small-box"></div>
+                        <div data-smindex='8' class="col-4 small-box"></div>
+                    </div>
+                  </div>
                 </div>
+              </div>
 
 
-
-
-      <h2 id="stats"></h2>
-    </div>
   </div>
-</div>
-</div>
       <footer class="footer">
-        <h4>Thanks for playing!</h4>
       </footer>
-</div>
     </body>
 </html>

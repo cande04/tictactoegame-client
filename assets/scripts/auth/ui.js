@@ -25,7 +25,7 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  $('#message').text('Signed in successfully!')
+  $('#message').text('Signed in successfully! Press new game to begin!')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
@@ -39,10 +39,12 @@ const onSignInSuccess = responseData => {
   $('#signout').show()
   $('#buttonChange').show()
   $('#modalLRForm').modal('hide')
+  $('.gameboard').hide()
 }
 
 const onSignInFailure = responseData => {
   $('#message').text('Sign in failed :(')
+  $('#noSignIn').text('Wrong Username/Password')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
@@ -50,7 +52,7 @@ const onSignInFailure = responseData => {
 
 const onSignOutSuccess = () => {
   console.log('successfully signed Out')
-  $('#message').text('Signed out successfully!')
+  $('.footer').text('Signed Out Successfully! Thanks for playing!')
   $('.box').html('')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -61,6 +63,7 @@ const onSignOutSuccess = () => {
     $('#modalLRForm').modal('show')
   })
   $('#signin-button').show()
+  $('.smallgameboard').hide()
 }
 
 const onSignOutFailure = () => {
@@ -76,10 +79,11 @@ const onChangePasswordSuccess = () => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#changePwModal').modal('hide')
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').text('Update password failed :(')
+  $('#noChangePw').text('Update password failed :(')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')

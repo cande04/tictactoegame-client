@@ -12,7 +12,7 @@ let currentPlayer = player_x
 
 const onCreate = (event) => {
   event.preventDefault()
-  $('#gameboard').show()
+  $('.gameboard').show()
   $('.box').html('')
   turn = 0
   currentPlayer = player_x
@@ -132,6 +132,7 @@ const gameData = {
 }
 
 const onPlay = (event) => {
+  $('.smallgameboard').hide()
   if (($(event.target).html() === '') && checkForWinner() !== true) {
     event.preventDefault()
 
