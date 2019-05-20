@@ -29,10 +29,14 @@ const onIndexFailure = () => {
 
 const onShowSuccess = responseData => {
   console.log('success', responseData)
+  console.log(responseData.game.cells.length)
+  console.log(responseData.game.cells)
+  store.game = responseData.game
+  console.log(store.game)
   $('#small-gameboard').show()
   // for (let i = 0; i < responseData.game.cells.length; i++) {
-  const cells = responseData.game.cells[$('.small-box').data('index')]
-  $('.small-box').html(cells)
+  // const cells = responseData.game.cells[$('.small-box').data('index')]
+  // $('.small-box').html(cells)
   // }
   // if ($('.small-box').data('index') === responseData.game.cells[i]) {
   //   $('.small-box').html(responseData.game.cells[i])
@@ -40,16 +44,20 @@ const onShowSuccess = responseData => {
   // }
   // console.log(responseData.game.cells)
 
-  // for (let i = 0; i < responseData.game.cells.length; i++) {
-  //   $('.small-box').data('index').html(responseData.game.cells[i])
-  // }
+  for (let i = 0; i < responseData.game.cells.length; i++) {
+    // $('.small-box').html(responseData.game.cells[i])
+    if ($('#small-box').data('smindex') === responseData.game.cells.index) {
+      $(`div[data-smindex=${i}]`).html(responseData.game.cells[i])
+    }
+  }
+  // $('div').trigger('reset')
 
-  const text = JSON.stringify(responseData.game.cells)
-  $('#stats').text('Here were the moves: ' + text)
-  setTimeout(() => $('#stats').html(''), 5000)
+  // const text = JSON.stringify(responseData.game.cells)
+  // $('#stats').text('Here were the moves: ' + text)
+  // setTimeout(() => $('#stats').html(''), 5000)
   // $('#message').removeClass()
   // $('#message').addClass('success')
-  setTimeout(() => $('#small-gameboard').hide(), 5000)
+  // setTimeout(() => $('#small-gameboard').hide(), 5000)
 }
 
 const onShowFailure = responseData => {

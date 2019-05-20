@@ -58,6 +58,12 @@ const onSignOutSuccess = () => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#everythingGame').hide()
+  $('#initialOnset').show()
+  $('#signin-submit').on('submit', () => {
+    $('#modalLRForm').modal('show')
+  })
+  $('#signin-button').show()
 }
 
 const onSignOutFailure = () => {

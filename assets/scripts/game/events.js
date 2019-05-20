@@ -133,6 +133,7 @@ const onPlay = (event) => {
 
     store.game.cells[$(event.target).data('index')] = currentPlayer
     gameData.game.cell.index = $(event.target).data('index')
+    gameData.game.cell.value = currentPlayer
     console.log(gameData)
     // checkForWinner()
     gameData.game.over = isGameOver()
@@ -142,8 +143,20 @@ const onPlay = (event) => {
         if (checkForWinner() !== true) {
           turn++
           takeTurns()
+          // store.game.cells[$(event.target).data('index')] = currentPlayer
+
           $('#message').html(`Player ${currentPlayer}'s turn!`)
         }
+        // if (turn === 9) {
+        //   checkForWinner()
+        //   if (checkForWinner() !== true) {
+        //     console.log('draw')
+        //     $(event.target).html(currentPlayer)
+        //     $('#message').html('Draw!')
+        //     // store.game.over = true
+        //     return true
+        //   }
+        // }
       })
       .catch(() => console.log('failure'))
 

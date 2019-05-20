@@ -26,6 +26,10 @@ $(() => {
     $('#changePwModal').modal('hide')
   })
 
+  $('#signout').on('click', function () {
+    $('#initialOnset').show()
+  })
+
   // $('document').ready(() => {
   //   $('#modalLRForm').show()
   // })
@@ -42,9 +46,9 @@ $(() => {
     $('#games-show').hide()
   })
 
-  $('document').ready(() => {
-    $('#game-show-id').hide()
-  })
+  // $('document').ready(() => {
+  //   $('#game-show-id').hide()
+  // })
 
   $('document').ready(() => {
     $('#games-index').hide()
@@ -69,7 +73,7 @@ $(() => {
 
   $('#newGame').on('click', gameEvents.onCreate)
   $('#games-index').on('click', gameEvents.onIndex)
-  $('#games-show').on('click', gameEvents.onShow)
+  $('#games-show').on('submit', gameEvents.onShow)
   $('.box').on('click', gameEvents.onPlay)
   $('#newGame').on('click', gameEvents.onReset)
 })

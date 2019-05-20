@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const create = () => {
-  console.log(store)
+  // console.log(store)
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -37,7 +37,7 @@ const show = (formData) => {
 }
 
 const update = (gameData) => {
-  console.log(store)
+  console.log(store, 'hi from patch api')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
