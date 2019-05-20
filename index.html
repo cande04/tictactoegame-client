@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="text-center form-sm mt-2">
-                      <input type="submit" value="Sign In" id="signin-submit">
+                      <input type="submit" value="Sign In" id="signin-submit" class="btn btn-outline-info waves-effect ml-auto">
                     </div>
                     </form>
                     </div>
@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="text-center form-sm mt-2">
-                      <input type="submit" value="Sign Up" id="signup-submit">
+                      <input type="submit" value="Sign Up" id="signup-submit" class="btn btn-outline-info waves-effect ml-auto">
                     </div>
                   </form>
 
@@ -96,7 +96,7 @@
           </div>
 
       <div class="text-center" id="signin-button">
-        <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Sign in to get started!</a>
+        <a href="" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Sign in to get started!</a>
       </div>
     </div>
 
@@ -154,8 +154,8 @@
 </div> -->
 <div id="everythingGame">
 <div class="text-center">
-      <button type="button" id="buttonChange" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#changePwModal">Change Password</button>
-      <button type="button" id="signout" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+      <button type="button" id="buttonChange" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
 </div>
 
 <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -171,7 +171,7 @@
             <input type="password" name="passwords[new]" placeholder="New Password">
           </div>
           <div class="md-form form-sm mb-5 text-center">
-            <input id="changepw-button" type="submit" class="text-center" value="Change Password">
+            <input id="changepw-button" type="submit" class="btn btn-outline-info waves-effect ml-auto" value="Change Password">
           </div>
           </form>
       </div>
@@ -185,11 +185,13 @@
 
 
 
-
-      <div>
+<div>
+      <div class="row">
         <h2 id="message"></h2>
-                <div class="container" id="gameboard">
-                  <div class="row">
+        <div class="col-sm-8">
+        <div class="embed-responsive embed-responsive-1by1 gamearea">
+              <div class="embed-responsive-item">
+                <div id="gameboard">
                     <div data-index='0' class="col-4 box"></div>
                     <div data-index='1' class="col-4 box"></div>
                     <div data-index='2' class="col-4 box"></div>
@@ -203,29 +205,31 @@
                 </div>
 
 
+
+
 <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
 <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
 <form id='games-show'>
   <input type='number' name='game[id]' placeholder='Game ID'>
-  <input type="submit" value="Find a Game">
+  <input type="submit" value="Find a Game" class="btn btn-outline-info waves-effect ml-auto">
   <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
 </form>
 
                   <div class="container" id="small-gameboard">
                     <div class="row">
-                      <div data-smindex='0' class="col-1 small-box"></div>
-                      <div data-smindex='1' class="col-1 small-box"></div>
-                      <div data-smindex='2' class="col-1 small-box"></div>
+                      <div data-smindex='0' class="col-4 small-box"></div>
+                      <div data-smindex='1' class="col-4 small-box"></div>
+                      <div data-smindex='2' class="col-4 small-box"></div>
                     </div>
                     <div class="row">
-                      <div data-smindex='3' class="col-1 small-box"></div>
-                      <div data-smindex='4' class="col-1 small-box"></div>
-                      <div data-smindex='5' class="col-1 small-box"></div>
+                      <div data-smindex='3' class="col-4 small-box"></div>
+                      <div data-smindex='4' class="col-4 small-box"></div>
+                      <div data-smindex='5' class="col-4 small-box"></div>
                     </div>
                     <div class="row">
-                      <div data-smindex='6' class="col-1 small-box"></div>
-                      <div data-smindex='7' class="col-1 small-box"></div>
-                      <div data-smindex='8' class="col-1 small-box"></div>
+                      <div data-smindex='6' class="col-4 small-box"></div>
+                      <div data-smindex='7' class="col-4 small-box"></div>
+                      <div data-smindex='8' class="col-4 small-box"></div>
                   </div>
                 </div>
 
@@ -233,7 +237,10 @@
 
 
       <h2 id="stats"></h2>
+    </div>
   </div>
+</div>
+</div>
       <footer class="footer">
         <h4>Thanks for playing!</h4>
       </footer>

@@ -70,10 +70,9 @@ $(() => {
     $('#small-gameboard').hide()
   })
 
-
   $('#newGame').on('click', gameEvents.onCreate)
   $('#games-index').on('click', gameEvents.onIndex)
   $('#games-show').on('submit', gameEvents.onShow)
   $('.box').on('click', gameEvents.onPlay)
-  $('#newGame').on('click', gameEvents.onReset)
+  // $('#newGame').on('click', gameEvents.onReset)
 })

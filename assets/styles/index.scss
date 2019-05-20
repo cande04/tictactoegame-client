@@ -2,6 +2,10 @@
 
 $header-footer-color: #8397b3;
 
+* {
+  font-family: sans-serif;
+}
+
 header {
   background-color: $header-footer-color;
   text-align: center;
@@ -45,6 +49,10 @@ header {
   width: 45vh;
   height: 45vh;
   font-size: 5rem;
+}
+
+#message {
+  text-align: center;
 }
 
 #small-gameboard {

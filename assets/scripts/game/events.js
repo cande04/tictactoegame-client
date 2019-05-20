@@ -5,9 +5,17 @@ const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 
+let turn = 0
+const player_x = 'X'
+const player_o = 'O'
+let currentPlayer = player_x
+
 const onCreate = (event) => {
   event.preventDefault()
   $('#gameboard').show()
+  $('.box').html('')
+  turn = 0
+  currentPlayer = player_x
 
   api.create()
     .then(ui.onCreateSuccess)
@@ -45,13 +53,8 @@ const onShow = (event) => {
 // }
 
 // const store.game.cells = ['', '', '', '', '', '', '', '', '']
-let turn = 0
-const player_x = 'X'
-const player_o = 'O'
-let currentPlayer = player_x
 
 // const winner = currentPlayer
-
 
 const takeTurns = function () {
   if (turn % 2 === 1) {
@@ -63,6 +66,7 @@ const takeTurns = function () {
 }
 
 const checkForWinner = function () {
+  console.log('turn is now ', turn)
   if ((store.game.cells[0] === 'X' && store.game.cells[1] === 'X' && store.game.cells[2] === 'X') ||
   (store.game.cells[3] === 'X' && store.game.cells[4] === 'X' && store.game.cells[5] === 'X') ||
 (store.game.cells[6] === 'X' && store.game.cells[7] === 'X' && store.game.cells[8] === 'X') ||
@@ -89,25 +93,25 @@ const checkForWinner = function () {
     currentPlayer = player_o
     // store.game.over = true
     return true
-  } else if (turn === 8) {
+  } else if (!store.game.cells.includes('')) {
     console.log('draw')
-    $(event.target).html(currentPlayer)
+    // $(event.target).html(currentPlayer)
     $('#message').html('Draw!')
     // store.game.over = true
     return true
   }
 }
 
-const onReset = (event) => {
-  event.preventDefault()
-  $('.box').html('')
-  turn = 0
-  currentPlayer = player_x
-  // store.game.over = true
-  //   store.game.cells[i] = ''
-  //
-  // return store.game.cells
-}
+// const onReset = (event) => {
+//   event.preventDefault()
+//   $('.box').html('')
+//   turn = 0
+//   currentPlayer = player_x
+// store.game.over = true
+//   store.game.cells[i] = ''
+//
+// return store.game.cells
+// }
 
 const isGameOver = function () {
   if (checkForWinner() !== true) {
@@ -132,9 +136,10 @@ const onPlay = (event) => {
     event.preventDefault()
 
     store.game.cells[$(event.target).data('index')] = currentPlayer
+    checkForWinner()
     gameData.game.cell.index = $(event.target).data('index')
     gameData.game.cell.value = currentPlayer
-    console.log(gameData)
+    // console.log(gameData)
     // checkForWinner()
     gameData.game.over = isGameOver()
     api.update(gameData)
@@ -142,6 +147,8 @@ const onPlay = (event) => {
         $(event.target).html(currentPlayer)
         if (checkForWinner() !== true) {
           turn++
+          console.log('turn increased to ', turn)
+          console.log(store.game.cells)
           takeTurns()
           // store.game.cells[$(event.target).data('index')] = currentPlayer
 
@@ -159,23 +166,19 @@ const onPlay = (event) => {
         // }
       })
       .catch(() => console.log('failure'))
-
-
-
-    console.log(store.game.cells)
+    // console.log(store.game.cells)
   } else {
     $('#message').html('Already Played!')
+    console.log('============')
   }
   console.log(isGameOver())
 }
-
-
 
 module.exports = {
   onCreate,
   onIndex,
   onShow,
-  onPlay,
+  onPlay
   // onUpdate,
-  onReset
+  // onReset
 }
