@@ -14,9 +14,7 @@ const onSignUpSuccess = responseData => {
   $('#game-show-id').show()
   $('#signout').show()
   $('#buttonChange').show()
-  $('#signup-submit').on('submit', () => {
-    $('#panel7').modal('hide')
-  })
+  $('#modalLRForm').modal('hide')
 }
 
 const onSignUpFailure = responseData => {
@@ -40,9 +38,7 @@ const onSignInSuccess = responseData => {
   $('#game-show-id').show()
   $('#signout').show()
   $('#buttonChange').show()
-  $('#signin-submit').on('submit', () => {
-    $('#modalLRForm').modal('hide')
-  })
+  $('#modalLRForm').modal('hide')
 }
 
 const onSignInFailure = responseData => {

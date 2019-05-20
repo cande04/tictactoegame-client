@@ -7,6 +7,7 @@ const onCreateSuccess = (responseData) => {
   store.game = responseData.game
   $('#message').text(`Let's play! Player X can start!`)
   $('form').trigger('reset')
+  $('#small-gameboard').hide()
 }
 
 const onCreateFailure = () => {
