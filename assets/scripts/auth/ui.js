@@ -32,6 +32,7 @@ const onSignInSuccess = responseData => {
   $('#message').addClass('success')
   $('form').trigger('reset')
   store.user = responseData.user
+  $('#everythingGame').show()
   $('#signin-button').hide()
   $('#newGame').show()
   $('#games-index').show()
