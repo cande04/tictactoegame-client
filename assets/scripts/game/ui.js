@@ -68,7 +68,7 @@ const onShowFailure = responseData => {
   // console.log('failure')
   $('#stats').text('Must enter a valid game ID')
   $('form').trigger('reset')
-  setTimeout(() => $('#message').html(''), 5000)
+  setTimeout(() => $('#stats').html(''), 5000)
   // $('#message').removeClass()
   // $('#message').addClass('failure')
 }

@@ -23,6 +23,7 @@ header {
   border-right: 1px solid #0B363D;
   color: $dark;
   display: flex;
+  font-size: 4rem;
   justify-content: center;
   min-height: calc(100% / 3);
   &:nth-child(3n) {
@@ -53,6 +54,7 @@ header {
   margin: auto;
   max-height: 70vh;
   max-width: 70vh;
+  padding: 1rem;
   width: 90%;
 }
 
@@ -78,9 +80,10 @@ header {
   align-items: center;
   display: flex;
   justify-content: center;
-  max-width: 70vh;
+  margin: auto;
   max-height: 70vh;
-  font-size: 5rem;
+  max-width: 70vh;
+  padding: 1rem;
 }
 
 .nav-link {
