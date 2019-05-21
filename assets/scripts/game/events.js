@@ -168,9 +168,11 @@ const onPlay = (event) => {
       })
       .catch(ui.onPlayFailure)
     // console.log(store.game.cells)
-  } else {
+  } else if ($(event.target).html() !== '') {
     $('#message').html('Already Played!')
     // console.log('============')
+  } else if (checkForWinner() === true) {
+    $('#message').html('Game over! Click new game to start over!')
   }
   // console.log(isGameOver())
 }

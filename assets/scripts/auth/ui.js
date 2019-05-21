@@ -27,7 +27,7 @@ const onSignUpFailure = responseData => {
 }
 
 const onSignInSuccess = responseData => {
-  $('#message').text('Signed in successfully! Press new game to begin!')
+  $('#message').text('Signed in successfully! Click new game to begin!')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
@@ -68,6 +68,7 @@ const onSignOutSuccess = () => {
   $('.jumbotron').show()
   $('#signin-button').show()
   $('.smallgameboard').hide()
+  setTimeout(() => $('.footer').text(''), 5000)
 }
 
 const onSignOutFailure = () => {
