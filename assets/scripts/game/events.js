@@ -146,6 +146,7 @@ const onPlay = (event) => {
     api.update(gameData)
       .then(() => {
         $(event.target).html(currentPlayer)
+        console.log(store.game)
         if (checkForWinner() !== true) {
           turn++
           // console.log('turn increased to ', turn)

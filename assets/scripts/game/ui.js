@@ -9,6 +9,8 @@ const onCreateSuccess = (responseData) => {
   $('form').trigger('reset')
   $('.smallgameboard').hide()
   $('.gameboard').show()
+  $('#gameID').text(`Game ID: ${store.game.id}`)
+  // $('.smallgameboard').html('')
 }
 
 const onCreateFailure = () => {
@@ -21,6 +23,7 @@ const onIndexSuccess = responseData => {
   const games = responseData.games
   $('#stats').append(`<p>You've played ${games.length} games!</p>`)
   setTimeout(() => $('#stats').html(''), 5000)
+  // $('.smallgameboard').html('')
 }
 
 const onIndexFailure = () => {
@@ -33,7 +36,8 @@ const onShowSuccess = responseData => {
   // console.log('success', responseData)
   // console.log(responseData.game.cells.length)
   // console.log(responseData.game.cells)
-  store.game = responseData.game
+  const game = responseData.game
+  console.log(game)
   // console.log(store.game)
   $('form').trigger('reset')
 
@@ -69,6 +73,7 @@ const onShowFailure = responseData => {
   $('#stats').text('Must enter a valid game ID')
   $('form').trigger('reset')
   setTimeout(() => $('#stats').html(''), 5000)
+  $(`div[data-smindex]`).html('')
   // $('#message').removeClass()
   // $('#message').addClass('failure')
 }
