@@ -37,7 +37,7 @@ const onShowSuccess = responseData => {
   // console.log(responseData.game.cells.length)
   // console.log(responseData.game.cells)
   const game = responseData.game
-  console.log(game)
+  // console.log(game)
   // console.log(store.game)
   $('form').trigger('reset')
 

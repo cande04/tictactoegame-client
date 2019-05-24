@@ -146,7 +146,7 @@ const onPlay = (event) => {
     api.update(gameData)
       .then(() => {
         $(event.target).html(currentPlayer)
-        console.log(store.game)
+        // console.log(store.game)
         if (checkForWinner() !== true) {
           turn++
           // console.log('turn increased to ', turn)
@@ -171,6 +171,7 @@ const onPlay = (event) => {
     // console.log(store.game.cells)
   } else if (checkForWinner() === true) {
     $('#message').html('Game over! Click new game to start over!')
+    // gameData.game.over = isGameOver()
   } else if ($(event.target).html() !== '') {
     $('#message').html('Already Played!')
     // console.log('============')
