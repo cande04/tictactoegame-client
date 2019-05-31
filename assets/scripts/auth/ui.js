@@ -8,7 +8,7 @@ const onSignUpSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
-  $('#signin-button').hide()
+  // $('#signin-button').hide()
   // $('#newGame').show()
   // $('#games-index').show()
   // $('#games-show').show()
@@ -20,7 +20,7 @@ const onSignUpSuccess = responseData => {
 }
 
 const onSignUpFailure = responseData => {
-  $('#message').text('Sign up failed :(')
+  $('#noSignIn').text('Sign up failed :(')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')

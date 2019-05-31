@@ -77,6 +77,7 @@ const checkForWinner = function () {
 (store.game.cells[2] === 'X' && store.game.cells[4] === 'X' && store.game.cells[6] === 'X')) {
     // console.log('player x wins')
     $('#message').html('Player X Wins!')
+    // setTimeout(() => $('#message').html(''), 5000)
     currentPlayer = player_x
     // store.game.over = true
     return true
@@ -90,6 +91,7 @@ const checkForWinner = function () {
 (store.game.cells[2] === 'O' && store.game.cells[4] === 'O' && store.game.cells[6] === 'O')) {
     // console.log('player o wins')
     $('#message').html('Player O Wins!')
+    // setTimeout(() => $('#message').html(''), 5000)
     currentPlayer = player_o
     // store.game.over = true
     return true
@@ -97,6 +99,7 @@ const checkForWinner = function () {
     // console.log('draw')
     // $(event.target).html(currentPlayer)
     $('#message').html('Draw!')
+    // setTimeout(() => $('#message').html(''), 5000)
     // store.game.over = true
     return true
   }
@@ -132,7 +135,6 @@ const gameData = {
 }
 
 const onPlay = (event) => {
-  $('.smallgameboard').hide()
   if (($(event.target).html() === '') && checkForWinner() !== true) {
     event.preventDefault()
 
@@ -143,9 +145,10 @@ const onPlay = (event) => {
     // console.log(gameData)
     // checkForWinner()
     gameData.game.over = isGameOver()
+    $(event.target).html(currentPlayer)
     api.update(gameData)
       .then(() => {
-        $(event.target).html(currentPlayer)
+        // $(event.target).html(currentPlayer)
         // console.log(store.game)
         if (checkForWinner() !== true) {
           turn++
@@ -174,6 +177,7 @@ const onPlay = (event) => {
     // gameData.game.over = isGameOver()
   } else if ($(event.target).html() !== '') {
     $('#message').html('Already Played!')
+    // setTimeout(() => $('#message').html(''), 5000)
     // console.log('============')
   }
   // console.log(isGameOver())

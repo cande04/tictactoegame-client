@@ -10,6 +10,7 @@ const onCreateSuccess = (responseData) => {
   $('.smallgameboard').hide()
   $('.gameboard').show()
   $('#gameID').text(`Game ID: ${store.game.id}`)
+  setTimeout(() => $('#message').html(''), 7000)
   // $('.smallgameboard').html('')
 }
 
@@ -21,7 +22,7 @@ const onCreateFailure = () => {
 
 const onIndexSuccess = responseData => {
   const games = responseData.games
-  $('#stats').append(`<p>You've played ${games.length} games!</p>`)
+  $('#stats').text(`You've played ${games.length} games!`)
   setTimeout(() => $('#stats').html(''), 5000)
   // $('.smallgameboard').html('')
 }
@@ -80,6 +81,7 @@ const onShowFailure = responseData => {
 
 const onPlayFailure = responseData => {
   $('#message').text('Failed to make a move')
+  setTimeout(() => $('#message').html(''), 5000)
 }
 
 module.exports = {
