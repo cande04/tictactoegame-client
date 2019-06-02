@@ -80,7 +80,7 @@ const onSignOutFailure = () => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
-  setTimeout(() => $('#message').text(''), 5000)
+  // setTimeout(() => $('#message').text(''), 5000)
 }
 
 const onChangePasswordSuccess = () => {
@@ -89,7 +89,7 @@ const onChangePasswordSuccess = () => {
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('#changePwModal').modal('hide')
-  setTimeout(() => $('#message').text(''), 5000)
+  // setTimeout(() => $('#message').text(''), 5000)
 
 }
 
