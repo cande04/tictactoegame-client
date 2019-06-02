@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Cory's Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signinModal">Sign In</button> -->
+
+
+
+<div id="initialOnset">
+  <header>
+    <h1>Tic Tac Toe</h1>
+  </header>
+
+
+
+      <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog cascading-modal" role="document">
+          <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-c-tabs">
+              <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
+                    Sign In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                    Sign Up</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+                  <div class="modal-body mb-1">
+                    <form id="signin">
+                    <div class="md-form form-sm mb-5">
+                      <input type="email" name=credentials[email] class="form-control" placeholder="Email">
+                    </div>
+                    <div class="md-form form-sm mb-4">
+                      <input type="password" name=credentials[password] class="form-control" placeholder="Password">
+                    </div>
+
+                    <div class="text-center form-sm mt-2">
+                      <input type="submit" value="Sign In" id="signin-submit" class="btn btn-outline-info waves-effect ml-auto">
+                    </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+                  <div class="modal-footer">
+                    <div class="options text-center text-md-right mt-1">
+                        <h3 class="text-center" id="noSignIn"></h3>
+                      <!-- <p>Not a member? Sign up on the next tab!</p> -->
+                    </div>
+                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                  <div class="modal-body">
+                    <form id="signup">
+                    <div class="md-form form-sm mb-5">
+                      <input type="email" name=credentials[email] class="form-control form-control-sm validate" placeholder="Email">
+                    </div>
+
+                    <div class="md-form form-sm mb-5">
+                      <input type="password" name=credentials[password] class="form-control form-control-sm validate" placeholder="Password">
+                    </div>
+
+                    <div class="md-form form-sm mb-4">
+                      <input type="password" name=credentials[password_confirmation] class="form-control form-control-sm validate" placeholder="Password Confirmation">
+                    </div>
+
+                    <div class="text-center form-sm mt-2">
+                      <input type="submit" value="Sign Up" id="signup-submit" class="btn btn-outline-info waves-effect ml-auto">
+                    </div>
+                  </form>
+
+                  </div>
+
+                  <div class="modal-footer">
+                    <button id="modal-close" type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            </div>
+          </div>
+
+
+
+          <div class="jumbotron text-center">
+            <h1 class="display-4">Are you ready to play Tic Tac Toe?!</h1>
+            <p class="lead">This is a single player game, where you will play both X's and O's.</p>
+            <hr class="my-4">
+            <p>Let's get started!</p>
+            <p class="lead">
+              <div class="text-center" id="signin-button">
+                <button class="btn btn-outline-info btn-lg waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Click here to sign up or sign in!</button>
+              </div>
+            </p>
+          </div>
+
+      <!-- <div class="text-center" id="signin-button">
+        <a class="btn btn-outline-info btn-lg waves-effect ml-auto" data-toggle="modal" data-target="#modalLRForm">Click here to sign up or sign in!</a>
+      </div> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-body">
+            <form id='signup'>
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" class="signup-button" value="Sign Up">
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
+          <form id='signin'>
+            <input type="email" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" class="signin-button" value="Sign In">
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sign In</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+<div id="everythingGame">
+<!-- <div class="text-right">
+      <button type="button" id="buttonChange" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+</div> -->
+
+<div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-body">
+          <form id='changepw'>
+            <div class="md-form form-sm mb-5 text-center">
+            <input type="password" name="passwords[old]" placeholder="Current Password">
+            </div>
+            <div class="md-form form-sm mb-5 text-center">
+            <input type="password" name="passwords[new]" placeholder="New Password">
+          </div>
+          <div class="md-form form-sm mb-5 text-center">
+            <p id="noChangePw"></p>
+            <input id="changepw-button" type="submit" class="btn btn-outline-info waves-effect ml-auto" value="Change Password">
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+    <button type="button" class="btn btn-outline-info btn-lg btn-block waves-effect ml-auto" id='newGame'>New Game</button>
+    <div class="text-right">
+      <button type="button" id="buttonChange" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+      <button type="button" id="signout" class="btn btn-outline-info waves-effect ml-auto" data-toggle="modal" data-target="#signoutModal">Sign Out</button>
+    </div>
+        <div class="row">
+        <h2 id="message"></h2>
+      </div>
+        <!-- <div class="row"> -->
+        <!-- <div class="col-sm-8"> -->
+
+          <div class="embed-responsive embed-responsive-1by1 gamearea">
+              <div class="embed-responsive-item gameboard row">
+
+                    <div data-index='0' class="col-4 box"></div>
+                    <div data-index='1' class="col-4 box"></div>
+                    <div data-index='2' class="col-4 box"></div>
+                    <div data-index='3' class="col-4 box"></div>
+                    <div data-index='4' class="col-4 box"></div>
+                    <div data-index='5' class="col-4 box"></div>
+                    <div data-index='6' class="col-4 box"></div>
+                    <div data-index='7' class="col-4 box"></div>
+                    <div data-index='8' class="col-4 box"></div>
+                  </div>
+                </div>
+                <h2 id="gameID"></h2>
+              <!-- </div> -->
+            <!-- </div> -->
+
+
+
+
+<!-- <div>
+<button type="button" class="btn btn-outline-info waves-effect ml-auto" id='newGame'>New Game</button>
+<button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
+<form id='games-show'>
+  <input type='number' name='game[id]' placeholder='Game ID'>
+  <input type="submit" value="Find a Game" class="btn btn-outline-info waves-effect ml-auto">
+  <! <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
+<!-- </form>
+</div> -->
+
+                  <!-- <div class="container" id="small-gameboard">
+                    <div class="row">
+                      <div data-smindex='0' class="col-4 small-box"></div>
+                      <div data-smindex='1' class="col-4 small-box"></div>
+                      <div data-smindex='2' class="col-4 small-box"></div>
+                    </div>
+                    <div class="row">
+                      <div data-smindex='3' class="col-4 small-box"></div>
+                      <div data-smindex='4' class="col-4 small-box"></div>
+                      <div data-smindex='5' class="col-4 small-box"></div>
+                    </div>
+                    <div class="row">
+                      <div data-smindex='6' class="col-4 small-box"></div>
+                      <div data-smindex='7' class="col-4 small-box"></div>
+                      <div data-smindex='8' class="col-4 small-box"></div>
+                  </div>
+                </div> -->
+
+
+                <div class="row">
+                  <div class="col-sm-4 text-center">
+
+                    <button type="button" class="btn btn-outline-info waves-effect ml-auto" id='games-index'>Total Number of Games</button>
+                      <h2 id="stats"></h2>
+
+                    <form id='games-show'>
+                      <input type="submit" value="Find a Game" class="btn btn-outline-info waves-effect ml-auto">
+                      <input type='number' name='game[id]' placeholder='Game ID'>
+                      <!-- <button type="button" class="btn btn-outline-info waves-effect ml-auto">Find a game</button> -->
+                    </form>
+                    <div class="embed-responsive embed-responsive-1by1 smallgamearea">
+                        <div class="embed-responsive-item smallgameboard row">
+                    <!-- <div class="container" id="small-gameboard"> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='0' class="col-4 small-box"></div>
+                        <div data-smindex='1' class="col-4 small-box"></div>
+                        <div data-smindex='2' class="col-4 small-box"></div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='3' class="col-4 small-box"></div>
+                        <div data-smindex='4' class="col-4 small-box"></div>
+                        <div data-smindex='5' class="col-4 small-box"></div>
+                      <!-- </div> -->
+                      <!-- <div class="row"> -->
+                        <div data-smindex='6' class="col-4 small-box"></div>
+                        <div data-smindex='7' class="col-4 small-box"></div>
+                        <div data-smindex='8' class="col-4 small-box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+  </div>
+      <footer>
+        <h4 class="footer"></h4>
+      </footer>
+    </body>
+</html>
