@@ -25,6 +25,7 @@ const onSignUpFailure = responseData => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
+  setTimeout(() => $('#noSignIn').text(''), 5000)
 }
 
 const onSignInSuccess = responseData => {
@@ -52,6 +53,7 @@ const onSignInFailure = responseData => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
+  setTimeout(() => $('#noSignIn').text(''), 5000)
 }
 
 const onSignOutSuccess = () => {
@@ -96,7 +98,7 @@ const onChangePasswordFailure = () => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
-  setTimeout(() => $('#message').text(''), 5000)
+  setTimeout(() => $('#noChangePw').text(''), 5000)
 }
 
 module.exports = {
