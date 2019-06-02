@@ -8,6 +8,7 @@ const onSignUpSuccess = responseData => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  setTimeout(() => $('#noSignIn').text(''), 5000)
   // $('#signin-button').hide()
   // $('#newGame').show()
   // $('#games-index').show()
@@ -77,6 +78,7 @@ const onSignOutFailure = () => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
+  setTimeout(() => $('#message').text(''), 5000)
 }
 
 const onChangePasswordSuccess = () => {
@@ -85,6 +87,8 @@ const onChangePasswordSuccess = () => {
   $('#message').addClass('success')
   $('form').trigger('reset')
   $('#changePwModal').modal('hide')
+  setTimeout(() => $('#message').text(''), 5000)
+
 }
 
 const onChangePasswordFailure = () => {
@@ -92,6 +96,7 @@ const onChangePasswordFailure = () => {
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('form').trigger('reset')
+  setTimeout(() => $('#message').text(''), 5000)
 }
 
 module.exports = {

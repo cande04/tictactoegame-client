@@ -10,14 +10,12 @@ const onCreateSuccess = (responseData) => {
   $('.smallgameboard').hide()
   $('.gameboard').show()
   $('#gameID').text(`Game ID: ${store.game.id}`)
-  setTimeout(() => $('#message').html(''), 7000)
   // $('.smallgameboard').html('')
 }
 
 const onCreateFailure = () => {
   $('#message').text('Failed to start new game')
   $('form').trigger('reset')
-  setTimeout(() => $('#message').html(''), 5000)
 }
 
 const onIndexSuccess = responseData => {
@@ -30,7 +28,7 @@ const onIndexSuccess = responseData => {
 const onIndexFailure = () => {
   $('#stats').text('Failed to get all games :()')
   $('form').trigger('reset')
-  setTimeout(() => $('#message').html(''), 5000)
+  setTimeout(() => $('#stats').html(''), 5000)
 }
 
 const onShowSuccess = responseData => {
